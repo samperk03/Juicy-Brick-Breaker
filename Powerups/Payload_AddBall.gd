@@ -6,7 +6,8 @@ func _ready():
 	$Timer.start()
 	var Ball_Container = get_node_or_null("/root/Game/Ball_Container")
 	if Ball_Container != null:
-		Ball_Container.make_ball_fever()
+		pass
+		#Ball_Container.make_ball_fever()
 
 func payload():
 	pass

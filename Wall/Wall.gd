@@ -13,3 +13,4 @@ func _physics_process(_delta):
 
 func hit(_ball):
 	$ColorRect.color = Color8(201,100,42,255)
+
