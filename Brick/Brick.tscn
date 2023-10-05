@@ -1,9 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjvdmnbj44w6x"]
+[gd_scene load_steps=7 format=3 uid="uid://bjvdmnbj44w6x"]
 
 [ext_resource type="Script" path="res://Brick/Brick.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c8ncql6woi0bx" path="res://Assets/bubble.png" id="2_i1r88"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(90, 30)
+
+[sub_resource type="Curve" id="Curve_hfo8a"]
+_data = [Vector2(0.00674649, 0.494706), 0.0, 0.0, 0, 0, Vector2(0.508267, 0.971157), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_qxdsl"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_q4ly7"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.546845, -1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Brick" type="StaticBody2D"]
 script = ExtResource("1")
@@ -16,3 +29,23 @@ offset_bottom = 15.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
+
+[node name="Confetti" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("2_i1r88")
+emission_shape = 3
+emission_rect_extents = Vector2(45, 15)
+direction = Vector2(2.08165e-12, 2.08165e-12)
+spread = 180.0
+initial_velocity_min = 353.54
+initial_velocity_max = 1000.0
+scale_amount_min = 0.0
+scale_amount_max = 0.5
+scale_amount_curve = SubResource("Curve_hfo8a")
+color_ramp = SubResource("Gradient_qxdsl")
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_q4ly7")

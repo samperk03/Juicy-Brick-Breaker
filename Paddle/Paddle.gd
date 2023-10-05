@@ -16,13 +16,16 @@ func _physics_process(_delta):
 	position = target
 	for c in $Powerups.get_children():
 		c.payload()
+	if $Paddle/Highlight.modulate.a > 0:
+		$Paddle/Highlight.modulate.a -= decay
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		target.x += event.relative.x
 
 func hit(_ball):
-	pass
+	$Paddle/Highlight.modulate.a = 1.0
+	$Confetti.emitting = true 
 
 func powerup(payload):
 	for c in $Powerups.get_children():

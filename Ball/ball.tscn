@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr50duubwf50c"]
+[gd_scene load_steps=6 format=3 uid="uid://dr50duubwf50c"]
 
 [ext_resource type="Script" path="res://Ball/Ball.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://d1wftmj2b1g3n" path="res://Assets/kenney_puzzle-pack/png/ballGrey.png" id="2_fj7wf"]
+[ext_resource type="Texture2D" uid="uid://cy6hn5f4jbusq" path="res://Assets/kenney_puzzle-pack/png/ballBlue.png" id="3_b3omv"]
 
 [sub_resource type="PhysicsMaterial" id="2"]
 friction = 0.0
@@ -15,13 +17,14 @@ physics_material_override = SubResource("2")
 gravity_scale = 0.0
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
+
+[node name="Ball" type="Sprite2D" parent="."]
+texture = ExtResource("2_fj7wf")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("3_b3omv")
 
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
