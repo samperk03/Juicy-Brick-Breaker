@@ -1,13 +1,12 @@
 # Project Name
-
-Context and date
+Juicy Brick Breaker
+resubmission 8/4/23
 
 Description
 
 
 ## Implementation
-
-Which features you included
+added paddle sprite and highlight, added ball sprite and highlight, added wall color decay, added color gradient to bricks, added particle emmissions to brick death and paddle hit, added UI themes 
 
 
 ## References
@@ -17,3 +16,4 @@ Which features you included
 
 
 ## Created by
+Sam Perkins
