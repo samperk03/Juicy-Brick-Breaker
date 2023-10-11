@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://dmwf8wjdir6y5"]
 
 [ext_resource type="Script" path="res://Paddle/Paddle.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://de32mn5pq4u83" path="res://Assets/kenney_puzzle-pack/png/paddleRed.png" id="2_j0wg3"]
-[ext_resource type="Texture2D" uid="uid://b88wnctwq2xp2" path="res://Assets/kenney_puzzle-pack/png/paddleBlu.png" id="3_qmje7"]
-[ext_resource type="Texture2D" uid="uid://cn0bj46qamkin" path="res://Assets/confetti.png" id="4_cukq5"]
+[ext_resource type="Texture2D" uid="uid://cw0ydisg3qqfs" path="res://Assets/kenney_puzzle-pack/png/element_grey_rectangle.png" id="2_obe8f"]
+[ext_resource type="Texture2D" uid="uid://chtmaf5o07xvi" path="res://Assets/kenney_puzzle-pack/png/element_grey_rectangle_glossy.png" id="3_oxjj2"]
+[ext_resource type="Texture2D" uid="uid://bpqxc2bxxxf76" path="res://Assets/kenney_puzzle-pack/png/particleCartoonStar.png" id="4_0i376"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(100, 20)
@@ -27,26 +27,36 @@ shape = SubResource("1")
 [node name="Powerups" type="Node2D" parent="."]
 
 [node name="Paddle" type="Sprite2D" parent="."]
-texture = ExtResource("2_j0wg3")
+modulate = Color(0.839216, 0.203922, 0.858824, 1)
+position = Vector2(0, 2.38419e-07)
+scale = Vector2(1.53125, 0.625)
+texture = ExtResource("2_obe8f")
 
 [node name="Highlight" type="Sprite2D" parent="Paddle"]
 modulate = Color(1, 1, 1, 0)
-texture = ExtResource("3_qmje7")
+position = Vector2(0.979592, -3.57628e-06)
+scale = Vector2(1.15306, 1.6)
+texture = ExtResource("3_oxjj2")
 
 [node name="Confetti" type="CPUParticles2D" parent="."]
 position = Vector2(2.08165e-12, -13)
 emitting = false
-amount = 6
-lifetime = 0.5
+amount = 20
+lifetime = 0.6
 one_shot = true
-explosiveness = 1.0
+speed_scale = 0.7
+explosiveness = 0.3
 randomness = 1.0
-texture = ExtResource("4_cukq5")
+texture = ExtResource("4_0i376")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
 direction = Vector2(2.08165e-12, -1)
 spread = 25.0
+gravity = Vector2(15, 20)
 initial_velocity_min = 250.0
 initial_velocity_max = 1000.0
 angular_velocity_max = 800.0
 scale_amount_curve = SubResource("Curve_vliic")
+color = Color(0.882353, 0.0862745, 0.72549, 1)
 hue_variation_max = 0.5
 hue_variation_curve = SubResource("Curve_4pxei")

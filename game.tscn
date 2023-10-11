@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd5m3yq1k5fx8"]
+[gd_scene load_steps=18 format=3 uid="uid://bd5m3yq1k5fx8"]
 
 [ext_resource type="Script" path="res://Brick/Brick_Container.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://dmwf8wjdir6y5" path="res://Paddle/Paddle.tscn" id="2"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://r1nm10jeqyta" path="res://UI/Instructions.tscn" id="8"]
 [ext_resource type="Script" path="res://Effects/Fever.gd" id="9"]
 [ext_resource type="Script" path="res://UI/Camera.gd" id="10_dsqnr"]
+[ext_resource type="AudioStream" uid="uid://cgo73eefhua3c" path="res://Assets/Wall.wav" id="11_ji12c"]
+[ext_resource type="AudioStream" uid="uid://cb24dm2dyna6k" path="res://Assets/Brick.wav" id="12_bvd4h"]
+[ext_resource type="AudioStream" uid="uid://bgpxmb4cumb7h" path="res://Assets/paddle.wav" id="13_2xhmv"]
+[ext_resource type="AudioStream" uid="uid://b8whj7qgl8lnt" path="res://Assets/Die.wav" id="14_wrlce"]
+[ext_resource type="AudioStream" uid="uid://cpb6hpkvnb1vj" path="res://Assets/BrickBreakerTheme.mp3" id="15_j7bq4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(200, 1000)
@@ -95,5 +100,20 @@ visible = false
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(577, 402)
 script = ExtResource("10_dsqnr")
+
+[node name="Wall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ji12c")
+
+[node name="Brick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_bvd4h")
+
+[node name="Paddle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_2xhmv")
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_wrlce")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_j7bq4")
 
 [connection signal="timeout" from="Fever/Timer" to="Fever" method="_on_Timer_timeout"]
